@@ -1,0 +1,36 @@
+<div class="container">
+    <h4 class="center-align">Modification des budgets</h4>
+    Disponible {{getTotalDisponible()}}
+    <span ng-show="getTotalDisponible() <0" class="card-panel red">100% d'allocation depassé</span>
+
+    <form name="budgetsForm" ng-submit="majBudgets()">
+        <table class="responsive-table centered striped">
+            <thead>
+            <tr>
+                <th>Categorie</th>
+                <th colspan="2">%</th>
+                <th>Total</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="budget in budgets" style="height: 20px">
+                <td>{{budget.categorie.nom}}</td>
+                <td>
+                    <p class="range-field">
+                        <input type="range" max="100" min="0"  ng-model="budget.pourcentageDuRevenus">
+                    </p>
+                </td>
+                <td>{{budget.pourcentageDuRevenus}}% </td>
+                <td>{{budget.pourcentageDuRevenus/100 * revenusDisponibles | currency:"€"}}</td>
+            </tr>
+            </tbody>
+        </table>
+
+
+    </form>
+    <div class="center-align">
+        <input type="submit" value="Valider" ng-click="majBudgets()" class="waves-effect waves-light btn" >
+    </div>
+</div>
+
+

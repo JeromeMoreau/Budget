@@ -1,0 +1,40 @@
+<h4>Ajout d'une transaction</h4>
+
+
+<form name="transactionForm" class="container" ng-submit="ajoutDepense()">
+    <div class="row">
+        <div class="input-field col s6">
+            Categorie:
+            <select ng-model="transaction.categorie"  class="browser-default"  ng-options="cat as cat.nom for cat in listeCategories" required>
+            </select>
+
+
+        </div>
+        <div class="input-field col s6">
+            <input type="text"  pick-a-date="date" placeholder="Date" ng-model="transaction.date" pick-a-date-options="options" required />
+        </div>
+
+
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <input type="text" class="validate" id="description" ng-model="transaction.description" required>
+            <label for="description">Description</label>
+        </div>
+    </div>
+    <div class="input-field">
+        Montant:
+        <input type="number" ng-model="transaction.montant" required aria-required="true" class="validate" >
+    </div>
+
+    <button class="btn-large waves-effect waves-light" type="submit" name="action">Ajouter
+        <i class="material-icons right">send</i>
+    </button>
+    <br/>
+    DEBUG:
+    is valid: {{transactionForm.$valid}} <br/>
+    Depense object:
+    {{transaction |json}}
+</form>
+
+

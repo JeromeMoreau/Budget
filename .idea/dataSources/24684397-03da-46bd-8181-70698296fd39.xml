@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="db_budget@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="db_budget">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="db_distance_ville"/>
+    <schema id="4" parent="1" name="db_gestion_biblio"/>
+    <schema id="5" parent="1" name="db_test_angularjs"/>
+    <schema id="6" parent="1" name="db_test_ejb"/>
+    <schema id="7" parent="1" name="db_test_java_jdbc"/>
+    <schema id="8" parent="1" name="db_test_jpa"/>
+    <schema id="9" parent="1" name="db_test_rest"/>
+    <schema id="10" parent="1" name="db_test_security"/>
+    <schema id="11" parent="1" name="db_test_spring"/>
+    <schema id="12" parent="1" name="db_test_sql"/>
+    <schema id="13" parent="1" name="db_test_webService"/>
+    <schema id="14" parent="1" name="db_tp_cargaison"/>
+    <schema id="15" parent="1" name="db_tp_ecommerce"/>
+    <schema id="16" parent="1" name="db_tp_shop"/>
+    <schema id="17" parent="1" name="information_schema"/>
+    <schema id="18" parent="1" name="mysql"/>
+    <schema id="19" parent="1" name="performance_schema"/>
+    <schema id="20" parent="1" name="sakila"/>
+    <schema id="21" parent="1" name="sys"/>
+    <schema id="22" parent="1" name="tp_gestion_ecommerce_angular"/>
+    <schema id="23" parent="1" name="world"/>
+    <table id="24" parent="2" name="budgets"/>
+    <table id="25" parent="2" name="categories"/>
+    <table id="26" parent="2" name="transactions"/>
+    <column id="27" parent="24" name="id_budget">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="28" parent="24" name="mois">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="29" parent="24" name="categorie_id">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="30" parent="24" name="FK_2hml791aj5i06qbjpwaw6vaa7">
+      <ColNames>categorie_id</ColNames>
+    </index>
+    <key id="31" parent="24" name="PRIMARY">
+      <ColNames>id_budget</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="32" parent="24" name="FK_2hml791aj5i06qbjpwaw6vaa7">
+      <ColNames>categorie_id</ColNames>
+      <RefSchemaName>db_budget</RefSchemaName>
+      <RefTableName>categories</RefTableName>
+      <RefColNames>id_categorie</RefColNames>
+    </foreign-key>
+    <column id="33" parent="25" name="id_categorie">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="34" parent="25" name="nom">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="35" parent="25" name="is_revenue">
+      <Position>3</Position>
+      <DataType>tinyint(1)|0</DataType>
+    </column>
+    <key id="36" parent="25" name="PRIMARY">
+      <ColNames>id_categorie</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="37" parent="26" name="montant">
+      <Position>2</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <column id="38" parent="26" name="categorie_id">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="39" parent="26" name="obligatoire">
+      <Position>4</Position>
+      <DataType>tinyint(1)|0</DataType>
+    </column>
+    <column id="40" parent="26" name="date">
+      <Position>5</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="41" parent="26" name="description">
+      <Position>6</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="42" parent="26" name="isRevenue">
+      <Position>7</Position>
+      <DataType>tinyint(1)|0</DataType>
+    </column>
+    <column id="43" parent="26" name="id_transaction">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <index id="44" parent="26" name="FK_igl2eq0dhv64ywpx39mkev6tx">
+      <ColNames>categorie_id</ColNames>
+    </index>
+    <key id="45" parent="26" name="PRIMARY">
+      <ColNames>id_transaction</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="46" parent="26" name="FK_igl2eq0dhv64ywpx39mkev6tx">
+      <ColNames>categorie_id</ColNames>
+      <RefSchemaName>db_budget</RefSchemaName>
+      <RefTableName>categories</RefTableName>
+      <RefColNames>id_categorie</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="org.eclipse.persistence.moxy_2.6.4.v20160829-44060b6">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Downloads/eclipselink-plugins-2/org.eclipse.persistence.moxy_2.6.4.v20160829-44060b6.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

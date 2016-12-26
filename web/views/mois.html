@@ -1,0 +1,117 @@
+
+<div class="row">
+        <div class="col s12 m3 l2 side-nav fixed" style="background-color: #607d8b; top:inherit;">
+            <a class="waves-effect waves-light btn" href="#/ajout">Ajouter Depense</a>
+            <a class="waves-effect waves-light btn" href="#/ajout?revenus=true">Ajouter Revenus</a>
+            <a class="waves-effect waves-light btn" href="#/budget">Modifier Budgets</a>
+
+
+            <h4>Mois</h4>
+            <ul class="collection">
+                <li class="collection-item" ng-class="{active:activeMois == 0}" ng-click="changerMois(0)">Janvier</li>
+                <li class="collection-item" ng-class="{active:activeMois == 1}" ng-click="changerMois(1)">Fevrier</li>
+                <li class="collection-item" ng-class="{active:activeMois == 2}" ng-click="changerMois(2)">Mars</li>
+                <li class="collection-item" ng-class="{active:activeMois == 3}" ng-click="changerMois(3)">Avril</li>
+                <li class="collection-item" ng-class="{active:activeMois == 4}" ng-click="changerMois(4)">Mai</li>
+                <li class="collection-item" ng-class="{active:activeMois == 5}" ng-click="changerMois(5)">Juin</li>
+                <li class="collection-item" ng-class="{active:activeMois == 6}" ng-click="changerMois(6)">Juillet</li>
+                <li class="collection-item" ng-class="{active:activeMois == 7}" ng-click="changerMois(7)">Aout</li>
+                <li class="collection-item" ng-class="{active:activeMois == 8}" ng-click="changerMois(8)">Septembre</li>
+                <li class="collection-item" ng-class="{active:activeMois == 9}" ng-click="changerMois(9)">Octobre</li>
+                <li class="collection-item" ng-class="{active:activeMois == 10}" ng-click="changerMois(10)">Novembre</li>
+                <li class="collection-item" ng-class="{active:activeMois == 11}" ng-click="changerMois(11)">Decembre</li>
+            </ul>
+
+        </div>
+    <div class="offset-s2 col s10">
+        <div class="center-align">
+        <h5 class="center-align"><i class="material-icons ">account_balance</i> Budgets</h5>
+        <div ng-show="budgets.length == 0 " class="card-panel orange">
+            Pas encore de budget :(
+            <button ng-click="creerDefaultBudgets()" class="waves-effect waves-light btn">Ajouter budgets</button>
+        </div>
+        <table class="responsive-table centered">
+            <thead>
+            <tr>
+                <th class="yellow lighten-2">A Economiser</th>
+                <th ng-repeat="budget in budgets"> {{budget.categorie.nom}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="yellow lighten-2" style="width: 10%; font-weight: bold; font-size: large">{{totalRevenus*0.1 | currency:"€"}}</td>
+                <td ng-repeat="budget in budgets" style="width: 10%">
+                    <p >{{pieData($index)}}% <br/>de {{budget.alloue | currency:"€"}}</p>
+                    <div class="progress">
+                        <div class="determinate" style="width:{{pieData($index)}}%" ng-class="{'red darken-2':budget.utilise>budget.alloue}"></div>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        </div>
+        <hr/>
+
+        <div class="container">
+            <h5 class="center-align"><i class="material-icons">monetization_on</i> Revenus: {{totalRevenus | currency:"€"}} </h5>
+            <table class="centered highlight">
+                <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Categorie</th>
+                    <th>Montant</th>
+                    <th>Description</th>
+                    <th>Supprimer</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="transaction in revenusDuMois">
+                    <td>{{transaction.date | date : 'd/M/yy'}}</td>
+                    <td>{{transaction.categorie.nom}}</td>
+                    <td>{{transaction.montant | currency:"€"}}</td>
+                    <td>{{transaction.description}}</td>
+                    <td>
+                        <button ng-click="supprimerTransaction(transaction.id)" class="waves-effect waves-teal btn-flat"> <i class="close material-icons">close</i></button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div class="card-panel teal lighten-5 center-align">
+                <h5>Disponible : {{revenusDisponibles | currency:"€"}}</h5>
+            </div>
+
+        </div>
+
+        <hr/>
+
+        <div class="container">
+            <h5 class="center-align"> <i class="material-icons">account_balance_wallet</i> Depenses: {{totalDepenses | currency:"€"}}</h5>
+            <table class="centered highlight">
+                <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Categorie</th>
+                    <th>Montant</th>
+                    <th>Description</th>
+                    <th>Supprimer</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="transaction in depenseDuMois">
+                    <td>{{transaction.date | date : 'd/M/yy'}}</td>
+                    <td>{{transaction.categorie.nom}}</td>
+                    <td>{{transaction.montant | currency:"€"}}</td>
+                    <td>{{transaction.description}}</td>
+                    <td>
+                        <button ng-click="supprimerTransaction(transaction.id)" class="waves-effect waves-teal btn-flat"> <i class="close material-icons">close</i></button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+
+</div>

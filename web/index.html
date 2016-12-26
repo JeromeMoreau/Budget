@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="budgetApp">
+<head>
+    <meta charset="UTF-8">
+    <title>{{pageTitle}}</title>
+
+    <!-- Materialize  -->
+    <script type="text/javascript" src="scripts/lib/jquery-3.1.1.js"></script>
+    <link rel="stylesheet" href="styles/materialize/css/materialize.css">
+    <script src="styles/materialize/js/materialize.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Angular and other libraries -->
+    <script type="text/javascript" src="scripts/lib/angular.js"></script>
+    <script type="text/javascript" src="scripts/lib/angular-route.js"></script>
+    <script src="scripts/lib/angular-datepicker.js"></script>
+    <script src="scripts/lib/Chart.js"></script>
+    <script src="scripts/lib/angular-chart.js"></script>
+
+
+    <!-- angular js scripts -->
+    <script type="text/javascript" src="scripts/core.js"></script>
+
+
+    <!--stylesheet for datepicker-->
+    <link rel="stylesheet" href="styles/datepicker-themes/default.css">
+    <link rel="stylesheet" href="styles/datepicker-themes/default.date.css">
+
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">Budget</a>
+            <ul class="right">
+                <li><a href="#/annee">Annee</a></li>
+                <li class="active"><a href="#/mois">Mois</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+
+
+<!-- BODYCONTENT -->
+<div class="container-fluid" ng-view>
+
+</div>
+
+</body>
+</html>

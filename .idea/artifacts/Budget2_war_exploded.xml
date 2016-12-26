@@ -1,0 +1,23 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Budget2:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/Budget2_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="Budget2/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Budget2" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Spring-4.3.4.RELEASE" />
+          <element id="library" level="project" name="Hibernate 4.2.2-4.2.2" />
+          <element id="library" level="project" name="JAX-WS-Glassfish / JAX-WS 2.2 RI / Metro 1.X / JWSDP 2.2" />
+          <element id="library" level="project" name="Spring MVC-4.3.4.RELEASE" />
+          <element id="library" level="project" name="jersey-bundle-1.19.3" />
+          <element id="library" level="project" name="javax.json.processing-1.0" />
+          <element id="library" level="project" name="org.eclipse.persistence.moxy_2.6.4.v20160829-44060b6" />
+          <element id="library" level="project" name="javax.ws.rs-api-2.0.1" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
